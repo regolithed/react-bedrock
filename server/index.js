@@ -2,6 +2,7 @@ var browserify = require('browserify-middleware')
 var express = require('express')
 var Path = require('path')
 var babelify = require('babelify')
+var sass = require('node-sass-endpoint')
 
 var routes = express.Router()
 
@@ -13,6 +14,9 @@ browserify.settings({
 //
 routes.get('/app-bundle.js',
   browserify('./client/app.js'))
+
+routes.get('/css/app-bundle.css',
+  sass.serve('./client/public/scss/app.scss'))
 
 //
 // Static assets (html, etc.)
