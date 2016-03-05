@@ -12,6 +12,7 @@
     1. [Installing Dependencies](#installing-dependencies)
     1. [Linting Setup](#linting-setup)
     1. [Tasks](#tasks)
+    1. [Database](#database)
 1. [Team](#team)
 1. [Contributing](#contributing)
 
