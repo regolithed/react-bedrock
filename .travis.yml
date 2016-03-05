@@ -9,6 +9,8 @@ addons:
   postgresql: '9.3'
 services:
 - postgresql
+before_deploy: "echo 'ready?'"
+after_deploy: "echo 'done!'"
 deploy:
   provider: heroku
   api_key:
