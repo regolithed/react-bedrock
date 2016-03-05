@@ -26,4 +26,16 @@ module.exports = {
     },
     debug: false, // set true for verbose database operations
   },
+
+  production: {
+    client: 'postgresql',
+    connection: {
+      connection: 'process.env.DATABASE_URL',
+    },
+    migrations: {
+      directory: './server/lib/migrations',
+      tableName: 'knex_migrations',
+    },
+    debug: false, // set true for verbose database operations
+  },
 };
