@@ -16,7 +16,7 @@ const AddTodo = ({ onSubmit }) => {
       }}
       >
         {/* FIXME: ESLint */}
-        <input style={{width:'300px'}} className="input is-large" ref={node => {
+        <input style={{ width: '300px' }} className="input is-large" ref={node => {
           input = node;
         }}
         />

@@ -25,12 +25,12 @@ function receiveTodos(todos) {
 function fetchTodos(currentTime) {
   return dispatch => {
     dispatch(requestTodos(currentTime));
-    return fetch('/api/todos').then(function(response){
-    	return response.json();
+    return fetch('/api/todos').then((response) => {
+      return response.json();
     }).then(response => {
       dispatch(receiveTodos(response.todos));
-    }).catch(function(error){
-    	console.log(error);
+    }).catch((error) => {
+      console.log(error);
     });
   };
 }
@@ -44,20 +44,20 @@ function receiveNewTodo(id) {
 }
 
 function addTodo(value) {
-	var todo = {
-		text : value,
-	};
+  const todo = {
+    text: value,
+  };
   return dispatch => {
     dispatch(requestNewTodo(value));
     return fetch('/api/todos', {
-    	method : 'post',
-    	headers: {
-    		'Accept': 'application/json',
-    		'Content-Type': 'application/json'
-  		},
-    	body : JSON.stringify(todo),
-    }).then(function(response){
-    	return response.json();
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(todo),
+    }).then((response) => {
+      return response.json();
     }).then(response => {
       dispatch(receiveNewTodo(response.todo.id));
     });
