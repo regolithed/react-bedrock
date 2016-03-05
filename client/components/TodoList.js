@@ -3,7 +3,7 @@ const Todo = require('./Todo');
 // use deconstruction to get the variables out of this.props
 // FIXME: ESLint
 const TodoList = ({ todos, onTodoClick }) => (
-  <ul>
+  <ul style={{width:'300px'}}>
     { todos.map(todo =>
       <Todo
         key={todo.id}

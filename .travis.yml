@@ -1,11 +1,18 @@
 language: node_js
 node_js:
-  - "5.6"
+- '5.6'
 before_script:
-  - npm install -g knex
-  - psql -c 'create database test;' -U postgres
-  - npm run migrate
-addons: 
-  postgresql: "9.3"
+- npm install -g knex
+- psql -c 'create database test;' -U postgres
+- npm run migrate
+addons:
+  postgresql: '9.3'
 services:
-  - postgresql
+- postgresql
+before_deploy: "echo 'ready?'"
+after_deploy: "echo 'done!'"
+deploy:
+  provider: heroku
+  api_key:
+    secure: hdwhXVgQ5nTQK1xK5YKDXjq6a4edUX7FI893zjdQzQyJax/Un66qutJw0tXij4LaMVS/H0uPQR4d7lSiEq9vY/vOQX4XHZP+6BXao3JM9rVVYbAOZG1+PYhT1xadVQeEWlFtnAdDIv/KEC/aeZijY9E3IPENp46uq6T7ndVoL6Sr4Ft20KLJEcLjHdrNpIqxOGBm/40Hz82JHUU4rJPWvElGDck/iI4C/5QPVEnAQYBnRN88HmviyzffYkNTkhZzzpHjKNnUFTrYF9M51bny9KGWae8BVy49bMg1TfHw084R05Ffth6U9ZdWp9YmhkHBh522ii4bG3Mrz8Usz/YcBg8wuQHd+3HcB4lxP58pfzMGy0CJ8/JVb2jQ7YrJDHUARex7CWNnjRGgBJj6NE7SPJM+x/P+PeAVTQN4RW/4p8zGWrjRaompeANN1c6icEBapvFW6pte6e+NZb9FcyiwbwjMphECBkmD0LFmVAcCIK37C8910tXYszqu0w9jczUou3rV86RnMBCgub+ovK/sGQct1+IyuQXbT9/zifOQrjc4gxdnznVKurflyfPycXFlUI126lwBqRN1Zk+kmlIx1X+GV630p1GhiV7/MAKDhfLkxtjxslqSQvG1nkseHrVUDXSD6PPKICTIMEXsJcPNKrwQdmjJ5jETGCzEcxUd5pM=
+  app: texans-vote
