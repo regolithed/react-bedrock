@@ -1,32 +1,32 @@
 const db = require('../lib/db');
 const Todo = module.exports;
 
-Todo.create = function(attrs) {
+Todo.create = (attrs) => {
   return db('todos').insert(attrs, ['id', 'text', 'completed'])
-  .then(function(response) {
-  	return response[0];
+  .then((response) => {
+    return response[0];
   })
-  .catch(function(error) {
-  	console.log('ERROR on Todo create', error)
-  	throw error;
-  })
+  .catch((error) => {
+    console.log('ERROR on Todo create', error);
+    throw error;
+  });
 };
 
-Todo.read = function() {
+Todo.read = () => {
   return db('todos').select()
-  .then(function(response) {
-  	return response;
+  .then((response) => {
+    return response;
   })
-  .catch(function(error) {
-  	console.log('ERROR', error)
-  	throw error;
-  })
+  .catch((error) => {
+    console.log('ERROR', error);
+    throw error;
+  });
 };
 
-Todo.update = function(attrs) {
+Todo.update = (attrs) => {
 	
 };
 
-Todo.remove = function(attrs) {
+Todo.remove = (attrs) => {
 	
 };
