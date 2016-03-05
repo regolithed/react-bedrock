@@ -1,1 +1,1 @@
-web: node server/index.j
+web: node server/index.js
