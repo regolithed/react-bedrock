@@ -60,6 +60,51 @@ npm start
 npm test
 ```
 
+### Database
+From within the root directory
+
+```sh
+// Intialize postgres database
+initdb db/
+
+// Create Local Databases
+createdb development
+createdb test
+
+// Verify knex CLI
+knex --version
+// If not installed
+npm install knex -g
+
+// Get latest version of database
+knex migrate:latest
+
+//If testing
+knex migrate:latest --env test
+
+// Update database
+knex migrate:make addNewFeatureNameToTableName
+```
+An Example migration file
+
+```sh
+exports.up = (knex, Promise) => {
+  return Promise.all([
+    knex.schema.table('todos', (table) => {
+      table.string('somethingElse').notNullable();
+    }),
+  ]);
+};
+
+exports.down = (knex, Promise) => {
+  return Promise.all([
+    knex.schema.table('todos', (table) => {
+      table.dropColumn('somethingElse');
+    }),
+  ]);
+};
+```
+
 
 ### Roadmap
 
