@@ -32,7 +32,10 @@
     "supertest": "^1.2.0"
   },
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "lint": "./node_modules/.bin/eslint . --ext .js",
+    "test": "./test/run.sh",
+    "migrate": "knex migrate:latest --env test"
   },
   "repository": {
     "type": "git",
